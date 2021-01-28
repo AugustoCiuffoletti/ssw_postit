@@ -1,8 +1,11 @@
 <h1> Post It!</h1>
 <li *ngFor='let msg of postIt'>
-	<app-visualizza [msg]="msg"> </app-visualizza>
+	<app-visualizza [msg]="msg" (daCancellare)="cancella($event)"> </app-visualizza>
 </li>
-<button *ngIf=!this.nuovo (click)="inNuovo()">+</button>
+
+<button *ngIf=!this.nuovo (click)="inNuovo()">+</button> <br>
+<button *ngIf=!this.nuovo (click)="upLoad()">Upload</button>
+
 <div *ngIf=this.nuovo>
   chiave: <input #k (keyup.enter)="nuovaKey(k.value)"> <br>
   valore: <input #v (keyup.enter)="nuovoValue(v.value)"> <br>
